@@ -1,0 +1,275 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/* Campus Nexus - Eco-Tech Design System */
+
+@layer base {
+  :root {
+    /* Core Colors - Forest Green Primary */
+    --background: 120 20% 99%;
+    --foreground: 120 25% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 120 25% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 120 25% 10%;
+
+    /* Forest Green Primary */
+    --primary: 109 37% 25%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Light Green Secondary */
+    --secondary: 120 30% 96%;
+    --secondary-foreground: 109 37% 20%;
+
+    /* Muted Greens */
+    --muted: 120 20% 95%;
+    --muted-foreground: 120 10% 45%;
+
+    /* Tech Blue Accent */
+    --accent: 212 100% 48%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Warning/Urgency Colors */
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 120 20% 90%;
+    --input: 120 20% 90%;
+    --ring: 109 37% 25%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar */
+    --sidebar-background: 120 25% 98%;
+    --sidebar-foreground: 120 25% 15%;
+    --sidebar-primary: 109 37% 25%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 120 30% 94%;
+    --sidebar-accent-foreground: 109 37% 20%;
+    --sidebar-border: 120 20% 92%;
+    --sidebar-ring: 109 37% 25%;
+
+    /* Custom Eco-Tech Tokens */
+    --eco-green: 109 37% 25%;
+    --eco-green-light: 120 40% 95%;
+    --eco-green-dark: 109 40% 18%;
+    --tech-blue: 212 100% 48%;
+    --tech-blue-light: 212 100% 95%;
+    --tech-blue-dark: 212 100% 35%;
+
+    /* Gradients */
+    --gradient-eco: linear-gradient(135deg, hsl(109, 37%, 25%) 0%, hsl(142, 76%, 36%) 100%);
+    --gradient-tech: linear-gradient(135deg, hsl(212, 100%, 48%) 0%, hsl(212, 100%, 35%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0, 0%, 100%) 0%, hsl(120, 20%, 98%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(120, 20%, 99%) 0%, hsl(120, 30%, 96%) 50%, hsl(212, 100%, 98%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(120, 20%, 10%, 0.03);
+    --shadow-md: 0 4px 6px -1px hsl(120, 20%, 10%, 0.05), 0 2px 4px -2px hsl(120, 20%, 10%, 0.03);
+    --shadow-lg: 0 10px 15px -3px hsl(120, 20%, 10%, 0.08), 0 4px 6px -4px hsl(120, 20%, 10%, 0.04);
+    --shadow-eco: 0 4px 14px 0 hsl(109, 37%, 25%, 0.15);
+    --shadow-tech: 0 4px 14px 0 hsl(212, 100%, 48%, 0.15);
+  }
+
+  .dark {
+    --background: 120 15% 8%;
+    --foreground: 120 10% 95%;
+
+    --card: 120 15% 10%;
+    --card-foreground: 120 10% 95%;
+
+    --popover: 120 15% 10%;
+    --popover-foreground: 120 10% 95%;
+
+    --primary: 120 40% 45%;
+    --primary-foreground: 120 15% 8%;
+
+    --secondary: 120 15% 15%;
+    --secondary-foreground: 120 10% 90%;
+
+    --muted: 120 15% 18%;
+    --muted-foreground: 120 10% 60%;
+
+    --accent: 212 100% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 120 15% 18%;
+    --input: 120 15% 18%;
+    --ring: 120 40% 45%;
+
+    --sidebar-background: 120 15% 6%;
+    --sidebar-foreground: 120 10% 90%;
+    --sidebar-primary: 120 40% 45%;
+    --sidebar-primary-foreground: 120 15% 8%;
+    --sidebar-accent: 120 15% 12%;
+    --sidebar-accent-foreground: 120 10% 90%;
+    --sidebar-border: 120 15% 15%;
+    --sidebar-ring: 120 40% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Bento Card Styles */
+  .bento-card {
+    @apply relative overflow-hidden rounded-2xl bg-card border border-border p-6 transition-all duration-300;
+    box-shadow: var(--shadow-md);
+  }
+
+  .bento-card:hover {
+    box-shadow: var(--shadow-lg);
+    @apply border-primary/20;
+  }
+
+  .bento-card-eco {
+    @apply bento-card;
+    background: var(--gradient-card);
+  }
+
+  .bento-card-eco:hover {
+    box-shadow: var(--shadow-eco);
+  }
+
+  .bento-card-tech {
+    @apply bento-card bg-accent/5;
+  }
+
+  .bento-card-tech:hover {
+    box-shadow: var(--shadow-tech);
+  }
+
+  /* Status Badges */
+  .status-badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-full;
+  }
+
+  .status-queue {
+    @apply status-badge bg-warning/10 text-warning;
+  }
+
+  .status-printing {
+    @apply status-badge bg-accent/10 text-accent;
+  }
+
+  .status-ready {
+    @apply status-badge bg-success/10 text-success;
+  }
+
+  .status-urgent {
+    @apply status-badge bg-destructive/10 text-destructive;
+  }
+
+  /* Priority Indicators */
+  .priority-high {
+    @apply border-l-4 border-l-destructive;
+  }
+
+  .priority-medium {
+    @apply border-l-4 border-l-warning;
+  }
+
+  .priority-low {
+    @apply border-l-4 border-l-primary;
+  }
+
+  /* Navigation */
+  .nav-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-muted-foreground transition-all duration-200;
+  }
+
+  .nav-item:hover {
+    @apply bg-secondary text-foreground;
+  }
+
+  .nav-item.active {
+    @apply bg-primary text-primary-foreground font-medium;
+  }
+
+  /* Eco Accent Elements */
+  .eco-highlight {
+    @apply bg-primary/10 text-primary;
+  }
+
+  .tech-highlight {
+    @apply bg-accent/10 text-accent;
+  }
+
+  /* Glass Effect */
+  .glass {
+    @apply bg-background/80 backdrop-blur-xl border border-border/50;
+  }
+
+  /* Animated Underline */
+  .animated-underline {
+    @apply relative;
+  }
+
+  .animated-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+  }
+
+  .animated-underline:hover::after {
+    @apply w-full;
+  }
+}
+
+@layer utilities {
+  .text-gradient-eco {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-eco);
+  }
+
+  .text-gradient-tech {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-tech);
+  }
+
+  .bg-gradient-eco {
+    background-image: var(--gradient-eco);
+  }
+
+  .bg-gradient-tech {
+    background-image: var(--gradient-tech);
+  }
+
+  .bg-gradient-hero {
+    background-image: var(--gradient-hero);
+  }
+
+  .shadow-eco {
+    box-shadow: var(--shadow-eco);
+  }
+
+  .shadow-tech {
+    box-shadow: var(--shadow-tech);
+  }
+}
